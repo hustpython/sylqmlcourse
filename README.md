@@ -141,7 +141,7 @@ Text是用来显示文字的：
 以下代码实现了一个矩形，里面的文字居中显示,透明度为0.5，通过修改radius属性绘制带弧度的矩形或圆形。
 一个类下可以嵌套另一个类，下面的代码中Text类嵌套在Rectangle中，那么Rectangle就是Text的parent。类进行定位时可以使用parent作为参考线，如这里```anchors.centerIn:parent```就是将子类的中心位置放在父类的中心。
 ```css
-//Rectanglelearn.qml
+//QMLLearn/Rectanglelearn.qml
 import QtQuick 2.0
 Item {
     Rectangle{
@@ -165,7 +165,7 @@ Item {
 QtQuick.Window是和窗口相关的库。在main.qml文件中引入这个文件，同一个文件下的qml文件不需要通过import导入，可以直接调用。main.qml是Qt main.cpp最后调用的一个qml文件，所有用其他的qml文件最后都要被main.qml导入才能够显示。
 
 ```css
-//main.qml
+//QMLLearn/main.qml
 import QtQuick 2.9
 import QtQuick.Window 2.2
 
@@ -194,7 +194,7 @@ Window {
 新建一个qml文件，取名为```Shiyanlouheaderback.qml```。
 
 ```css
-//Shiyanlouheaderback.qml
+//QMLLearn/Shiyanlouheaderback.qml
 import QtQuick 2.0
 Item {
     Rectangle
@@ -220,7 +220,7 @@ Image类是用来显示图片的，支持各种常见的图片格式。图片属
 创建文件```Shiyanloulogo.qml ```。
 
 ```css
-//Shiyanloulogo.qml
+//QMLLearn/Shiyanloulogo.qml
 import QtQuick 2.0
 Item {
     // 显示实验楼logo
@@ -252,7 +252,7 @@ Item {
 新建文件 ``` Shiyanlouuser.qml```。
 
 ```css
-// Shiyanlouuser.qml
+//QMLLearn/Shiyanlouuser.qml
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
 Item {
@@ -318,7 +318,7 @@ Item {
 |onClicked|鼠标点击时|
 
 ```css
-//Shiyanloucoursebtn.qml
+//QMLLearn/Shiyanloucoursebtn.qml
 import QtQuick 2.0
 Item {
     // 按钮的背景
@@ -366,7 +366,7 @@ Listview 有魔法般的特效。它通过设置一个代理模板，模板中�
 首先我们先实现一个模板文件```Shiyanloucourselistview.qml```，用来显示课程名称。
 模板中设置了三个变量：coursetxt1，coursetxt2，coursetxt3。这三个变量是在模型文件中进行赋值，通过多组赋值就能实现多个模板形成的列表视图,注意这里的Item必须要设置width和height。
 ```css
-//Shiyanloucourselistview.qml
+//QMLLearn/Shiyanloucourselistview.qml
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 Item {
@@ -410,7 +410,7 @@ Item {
             }
         }
     }
-    // 文字下面的横向
+    // 文字下面的横线
     Rectangle{
         id:line
         anchors.bottom: listviewrect.bottom
@@ -430,7 +430,7 @@ Item {
 然后通过建立模型文件```Shiyanloucoursemodel1.qml```，可以快速地实现列表视图。在```ListModel```通过ListElement属性，将模板中的三个变量分别赋值。
 ListModel支持动态交互，比如添加移除等这些操作在下一个实验将会介绍。
 ```css
-//Shiyanloucoursemodel1.qml
+//QMLLearn/Shiyanloucoursemodel1.qml
 import QtQuick 2.0
 ListModel {
             id:courselistmodel
@@ -443,6 +443,9 @@ ListModel {
 最后将模板和模型通过ListView进行组合,具体代码在main.qml中。
 
 ```css
+//QMLLearn/main.qml
+......
+
 ListView{
             width: 90
             height: 400
@@ -451,6 +454,8 @@ ListView{
             // 模板文件
             delegate:Shiyanloucourselistview{
             }
+......
+
 ```
 这样就会形成如下效果：
 <div align = center>
@@ -464,7 +469,7 @@ ListView{
 卡片分上下两部分，为了实现图片的圆角效果，用了两个Rectangle，并且由于Rectangle的圆角不支持单一的设置，只能4个同时显示，所有用了两个小矩形进行遮盖。同样这里也有3个变量：上部分的背景色和“楼+”的字体颜色backcolor。上部分的文字upstr，下部分的文字bottomstr。
 
 ```css
-//Shiyanloupluslistview.qml
+//QMLLearn/Shiyanloupluslistview.qml
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
 Item {
@@ -551,7 +556,7 @@ Item {
 
 创建模型文件```Shiyanloucoursemodel2.qml```和```Shiyanloucoursemodel3.qml```用来设定模板文件中的变量。
 ```css
-//Shiyanloucoursemodel2.qml
+//QMLLearn/Shiyanloucoursemodel2.qml
 import QtQuick 2.0
 ListModel {
     id:courselistmodel2
@@ -570,7 +575,7 @@ ListModel {
 }
 
 ```
-效果如下所示:
+楼+卡片的单个模板效果如下所示:
 <div align=center>
 
 ![](截图/13.png)
@@ -581,6 +586,7 @@ ListModel {
 至此需要的所有组件分别单个实现了，选择该将他们按照一定的布局进行拼接，需要的代码文件清单如下。
 
 ```shell
+QMLLearn
 ├── main.qml
 ├── Shiyanloucoursebtn.qml
 ├── Shiyanloucourselistview.qml
@@ -596,6 +602,7 @@ ListModel {
 修改```main.qml```文件。
 
 ```css
+//QMLLearn/main.qml
 import QtQuick 2.9
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.2
