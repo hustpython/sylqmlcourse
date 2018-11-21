@@ -922,7 +922,7 @@ Item {
             uploadordownload.buttonClicked()
         }
     }
-    // 影音特效
+    // 阴影特效
     DropShadow {
             anchors.fill: buttontext
             horizontalOffset: 1
@@ -1031,7 +1031,7 @@ Item {
 ```
 与之类似的还有一个文件，```Zimu/basecom/Mainimglinedown.qml```是用来对主视图进行截图的，它更新变量```mainposition```，代码可以在源文件中进行查看。
 
-#### 3.2.3 图片的顺序挑战和删除以及主图按钮
+#### 3.2.3 图片的顺序调整和删除以及主图按钮
 
 <div align=center>
 
