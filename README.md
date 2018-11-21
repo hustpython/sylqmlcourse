@@ -209,13 +209,13 @@ Item {
 
 #### 2.2.2 Image
 
-Image类是用来显示图片的，支持各种常见的图片格式。图片属于外部资源，我们需要在Qt中导入。先提前在工程目录下创建一个文件夹image,然后放入图片"shiyanlou_logo.svg"
+Image类是用来显示图片的，支持各种常见的图片格式。图片属于外部资源，我们需要在Qt中导入。这里我们已经提前准备好了资源文件夹image，请拷贝至我们的工程目录下面。
 
 ```文件 >> 新建文件或项目 >> 选择 Qt Resource File```
 ![](截图/8.png)
 剩下的按照默认的选项即可。
 
-左侧的项目栏窗口的Resources下面会出现一个image.qrc，旋转，右键 >> Add Exisiting Directory。选择提前准备的"image"文件夹，主要不要选择main.cpp。
+左侧的项目栏窗口的Resources下面会出现一个image.qrc，旋转，右键 >> Add Exisiting Directory。选择提前准备的"image"文件夹，注意不要选择main.cpp。
 
 创建文件```Shiyanloulogo.qml ```。
 
